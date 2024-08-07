@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contacto extends Model
 {
+    use HasFactory;
+    
     public function telefonos(){
         return $this->hasMany(Telefono::class);
     }

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Email extends Model
 {
+    use HasFactory;
+    
     public function contacto(){
         return $this->belongsTo(Contacto::class);
     }

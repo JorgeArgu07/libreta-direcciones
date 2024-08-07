@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('emails', function (Blueprint $table) {
             $table->id();
-            $table->string('direccion');
+            $table->string('email');
             $table->foreignId('contacto_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

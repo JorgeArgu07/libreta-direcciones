@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Direccion extends Model
 {
+    use HasFactory;
+    
     public function contacto(){
         return $this->belongsTo(Contacto::class);
-    } 
+    }
 }
