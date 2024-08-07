@@ -1,0 +1,38 @@
+<h1>Agregar Contacto</h1>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" pInputText formControlName="nombre">
+    </div>
+
+    <div formArrayName="telefonos" class="p-field">
+      <div *ngFor="let telefono of telefonos.controls; let i = index" [formGroupName]="i">
+        <label for="numero-{{i}}">Teléfono:</label>
+        <input id="numero-{{i}}" type="text" pInputText formControlName="numero">
+        <button pButton type="button" icon="pi pi-minus" (click)="removeTelefono(i)"></button>
+      </div>
+      <button pButton type="button" icon="pi pi-plus" (click)="addTelefono()">Añadir Teléfono</button>
+    </div>
+
+    <div formArrayName="emails" class="p-field">
+      <div *ngFor="let email of emails.controls; let i=index" [formGroupName]="i">
+        <label for="email-{{i}}">Email:</label>
+        <input id="email-{{i}}" type="email" pInputText formControlName="email">
+        <button pButton type="button" icon="pi pi-minus" (click)="removeEmail(i)"></button>
+      </div>
+      <button pButton type="button" icon="pi pi-plus" (click)="addEmail()">Añadir Email</button>
+    </div>
+
+    <div formArrayName="direcciones" class="p-field">
+      <div *ngFor="let direccion of direcciones.controls; let i=index" [formGroupName]="i">
+        <label for="direccion-{{i}}">Dirección:</label>
+        <input id="direccion-{{i}}" type="text" pInputText formControlName="direccion">
+        <button pButton type="button" icon="pi pi-minus" (click)="removeDireccion(i)"></button>
+      </div>
+      <button pButton type="button" icon="pi pi-plus" (click)="addDireccion()">Añadir Dirección</button>
+    </div>
+
+    <button pButton type="submit" label="Guardar"></button>
+  </div>
+</form>

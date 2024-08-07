@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Email extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['contacto_id', 'email'];
     
     public function contacto(){
         return $this->belongsTo(Contacto::class);

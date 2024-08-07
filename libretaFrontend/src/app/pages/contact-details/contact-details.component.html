@@ -1,0 +1,25 @@
+<div *ngIf="contact">
+    <h2>{{ contact.nombre }}</h2>
+    
+    <h3>Teléfonos</h3>
+    <ul>
+      <li *ngFor="let telefono of contact.telefonos">
+        {{ telefono.numero }}
+      </li>
+    </ul>
+    
+    <h3>Emails</h3>
+    <ul>
+      <li *ngFor="let email of contact.emails">
+        {{ email.email }}
+      </li>
+    </ul>
+    
+    <h3>Direcciones</h3>
+    <ul>
+      <li *ngFor="let direccion of contact.direcciones">
+        {{ direccion.direccion }}
+      </li>
+    </ul>
+  </div>
+  
