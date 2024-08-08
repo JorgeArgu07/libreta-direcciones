@@ -9,12 +9,15 @@ import { Contact } from '../../interfaces/contact';
 })
 export class HomeComponent implements OnInit {
   contacts: any[] = [];
+  loading: boolean = false;
 
   constructor(private contactService: ContactService){}
 
   ngOnInit(): void {
+    this.loading = true;
     this.contactService.getContacts().subscribe((data) => {
       this.contacts = data;
+      this.loading = false;
     });
   }
 

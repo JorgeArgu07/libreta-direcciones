@@ -1,3 +1,19 @@
+<p-dialog styleClass="border-round-2xl" styleClass="shadow-none" class="principalLoader border-round" position="center"
+    [visible]="loading" [resizable]="false" [closable]="false" [style]="{width: '70%'}">
+    <ng-template pTemplate="header">
+        <div class="grid w-full flex justify-content-center">
+            <div class="col-10">
+                <app-card-loader [loading]="loading"></app-card-loader>
+                <span class="text-center">
+                    <h5 class="mt-2">
+                        Obteniendo información
+                    </h5>
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
 <div class="grid flex justify-content-center p-3">
     <div class="col-12 md:col-8">
         <div class="surface-border border-1 border-round-2xl p-3">

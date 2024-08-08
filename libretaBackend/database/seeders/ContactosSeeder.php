@@ -15,9 +15,9 @@ class ContactosSeeder extends Seeder
     {
         Contacto::factory()
             ->count(5000)
-            ->hasTelefonos(2)  // Ajusta el número de teléfonos por contacto
-            ->hasEmails(2)     // Ajusta el número de emails por contacto
-            ->hasDirecciones(2) // Ajusta el número de direcciones por contacto
+            ->hasTelefonos(2)
+            ->hasEmails(2)
+            ->hasDirecciones(2)
             ->create();
     }
 }

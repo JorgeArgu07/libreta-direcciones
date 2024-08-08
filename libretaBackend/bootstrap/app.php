@@ -15,9 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(CorsMiddleware::class);
         $middleware->validateCsrfTokens(except: [
             '/contactos',
-            '/contactos/*' // <-- exclude this route
+            '/contactos/*' // <-- Se excluyen estas rutas
         ]);
-        //
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

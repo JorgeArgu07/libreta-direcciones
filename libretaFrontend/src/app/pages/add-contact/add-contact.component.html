@@ -1,38 +1,66 @@
-<h1>Agregar Contacto</h1>
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <div class="p-fluid">
-    <div class="p-field">
-      <label for="nombre">Nombre:</label>
-      <input id="nombre" type="text" pInputText formControlName="nombre">
-    </div>
-
-    <div formArrayName="telefonos" class="p-field">
-      <div *ngFor="let telefono of telefonos.controls; let i = index" [formGroupName]="i">
-        <label for="numero-{{i}}">Teléfono:</label>
-        <input id="numero-{{i}}" type="text" pInputText formControlName="numero">
-        <button pButton type="button" icon="pi pi-minus" (click)="removeTelefono(i)"></button>
+<div class="grid flex justify-content-center p-3">
+  <div class="col-12 md:col-6">
+    <div class="surface-border border-1 border-round-2xl p-3">
+      <div class="w-full text-center">
+        <h2>Agregar contacto</h2>
       </div>
-      <button pButton type="button" icon="pi pi-plus" (click)="addTelefono()">Añadir Teléfono</button>
-    </div>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="p-field m-2 flex flex-column gap-1">
+          <label for="nombre">Nombre:</label>
+          <input id="nombre" type="text" pInputText formControlName="nombre">
+          <div *ngIf="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched" class="p-error">
+            Nombre es requerido.
+          </div>
+        </div>
 
-    <div formArrayName="emails" class="p-field">
-      <div *ngFor="let email of emails.controls; let i=index" [formGroupName]="i">
-        <label for="email-{{i}}">Email:</label>
-        <input id="email-{{i}}" type="email" pInputText formControlName="email">
-        <button pButton type="button" icon="pi pi-minus" (click)="removeEmail(i)"></button>
-      </div>
-      <button pButton type="button" icon="pi pi-plus" (click)="addEmail()">Añadir Email</button>
-    </div>
+        <div formArrayName="telefonos">
+          <div *ngFor="let telefono of telefonos.controls; let i = index" [formGroupName]="i"
+            class="p-field m-2 flex flex-column gap-2">
+            <label for="numero-{{i}}">Teléfono:</label>
+            <p-inputGroup>
+              <input id="numero-{{i}}" type="text" pInputText formControlName="numero" />
+              <button pButton type="button" icon="pi pi-times" class="p-button-danger"
+                (click)="removeTelefono(i)"></button>
+            </p-inputGroup>
+          </div>
+          <button pButton type="button" icon="pi pi-plus" class="p-button-success m-2" (click)="addTelefono()">
+            Añadir Teléfono
+          </button>
+        </div>
 
-    <div formArrayName="direcciones" class="p-field">
-      <div *ngFor="let direccion of direcciones.controls; let i=index" [formGroupName]="i">
-        <label for="direccion-{{i}}">Dirección:</label>
-        <input id="direccion-{{i}}" type="text" pInputText formControlName="direccion">
-        <button pButton type="button" icon="pi pi-minus" (click)="removeDireccion(i)"></button>
-      </div>
-      <button pButton type="button" icon="pi pi-plus" (click)="addDireccion()">Añadir Dirección</button>
-    </div>
+        <div formArrayName="emails" class="p-field">
+          <div *ngFor="let email of emails.controls; let i=index" [formGroupName]="i"
+            class="p-field m-2 flex flex-column gap-2">
+            <label for="email-{{i}}">Email:</label>
+            <p-inputGroup>
+              <input id="email-{{i}}" type="email" pInputText formControlName="email" />
+              <button pButton type="button" icon="pi pi-times" class="p-button-danger"
+                (click)="removeEmail(i)"></button>
+            </p-inputGroup>
+          </div>
+          <button pButton type="button" icon="pi pi-plus" class="p-button-success m-2" (click)="addEmail()">
+            Añadir Email
+          </button>
+        </div>
 
-    <button pButton type="submit" label="Guardar"></button>
+        <div formArrayName="direcciones" class="p-field">
+          <div *ngFor="let direccion of direcciones.controls; let i=index" [formGroupName]="i"
+            class="p-field m-2 flex flex-column gap-2">
+            <label for="direccion-{{i}}">Dirección:</label>
+            <p-inputGroup>
+              <input id="direccion-{{i}}" type="text" pInputText formControlName="direccion" />
+              <button pButton type="button" icon="pi pi-times" class="p-button-danger"
+                (click)="removeDireccion(i)"></button>
+            </p-inputGroup>
+          </div>
+          <button pButton type="button" icon="pi pi-plus" class="p-button-success m-2" (click)="addDireccion()">
+            Añadir Dirección
+          </button>
+        </div>
+        <div class="flex justify-content-end">
+          <p-button type="submit" label="Guardar" [disabled]="contactForm.invalid" class="m-2"></p-button>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
+</div>

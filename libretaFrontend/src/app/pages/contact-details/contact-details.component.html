@@ -1,25 +1,37 @@
-<div *ngIf="contact">
-    <h2>{{ contact.nombre }}</h2>
-    
-    <h3>Teléfonos</h3>
-    <ul>
-      <li *ngFor="let telefono of contact.telefonos">
-        {{ telefono.numero }}
-      </li>
-    </ul>
-    
-    <h3>Emails</h3>
-    <ul>
-      <li *ngFor="let email of contact.emails">
-        {{ email.email }}
-      </li>
-    </ul>
-    
-    <h3>Direcciones</h3>
-    <ul>
-      <li *ngFor="let direccion of contact.direcciones">
-        {{ direccion.direccion }}
-      </li>
-    </ul>
-  </div>
-  
+<div class="grid flex justify-content-center p-3">
+    <div class="col-12 md:col-8">
+        <div class="p-3">
+            <div *ngIf="contact" class="surface-card p-4 shadow-2 border-round">
+                <div class="font-medium text-3xl text-900 mb-3">
+                    {{contact.nombre}}
+                </div>
+                <p-scrollPanel class="flex h-30rem md:h-auto" styleClass="w-full">
+                    <ul class="list-none p-0 m-0">
+                        <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+                            <div class="text-500 w-6 md:w-2 font-medium">Teléfonos</div>
+                            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+                                <p-chip *ngFor="let telefono of contact.telefonos" styleClass="m-1"
+                                    [label]="telefono.numero"></p-chip>
+                            </div>
+                        </li>
+                        <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+                            <div class="text-500 w-6 md:w-2 font-medium">Emails</div>
+                            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+                                <p-chip *ngFor="let email of contact.emails" styleClass="m-1"
+                                    [label]="email.email"></p-chip>
+                            </div>
+                        </li>
+                        <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+                            <div class="text-500 w-6 md:w-2 font-medium">Direcciones</div>
+                            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+                                <p-chip *ngFor="let direccion of contact.direcciones" styleClass="m-1"
+                                    [label]="direccion.direccion"></p-chip>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </p-scrollPanel>
+            </div>
+        </div>
+    </div>
+</div>

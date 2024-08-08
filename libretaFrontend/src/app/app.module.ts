@@ -12,6 +12,15 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { DialogModule } from 'primeng/dialog';
+import { CardLoaderComponent } from './pages/card-loader/card-loader.component';
+import { ChipModule } from 'primeng/chip';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [
@@ -19,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AddContactComponent,
     EditContactComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    CardLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonModule,
     TableModule,
     ReactiveFormsModule,
+    InputTextModule,
+    InputGroupModule,
+    InputGroupAddonModule,
+    BrowserAnimationsModule,
+    ProgressBarModule,
+    DialogModule,
+    ChipModule,
+    ScrollPanelModule,
     HttpClientModule
   ],
   providers: [
